@@ -638,7 +638,8 @@ track_plot = function(summary_list = NULL,
         }
         next
       }
-      cols = cut(x$max, breaks = c(0, 166, 277, 389, 500, 612, 723, 834, 945, max(x$max)), labels = c("#FFFFFF", "#F0F0F0", "#D9D9D9", "#BDBDBD", "#969696", "#737373", 
+      # add a buff to max(x$max) to avoid duplication.
+      cols = cut(x$max, breaks = c(0, 166, 277, 389, 500, 612, 723, 834, 945, max(x$max)+1e-8), labels = c("#FFFFFF", "#F0F0F0", "#D9D9D9", "#BDBDBD", "#969696", "#737373", 
                                                                                                       "#525252", "#252525", "#000000"))
       rect(xleft = x$start, ybottom = 0.01, xright = x$end, ytop = 0.99, col = as.character(cols), border = NA)
       
